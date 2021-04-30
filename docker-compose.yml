@@ -37,6 +37,10 @@ services:
     volumes:
       - ./backend:/application/app.js
       - ./docker-config/node/start_application.sh:/data/start-application.sh
+    links:
+      - database
+    depends_on: 
+      - database
     working_dir: /application  
     entrypoint: /data/start-application.sh
     networks:
